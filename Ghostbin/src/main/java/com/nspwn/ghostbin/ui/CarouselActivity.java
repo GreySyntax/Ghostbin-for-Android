@@ -2,7 +2,6 @@
 
 package com.nspwn.ghostbin.ui;
 
-import android.accounts.OperationCanceledException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -12,15 +11,14 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
 import com.nspwn.ghostbin.BootstrapServiceProvider;
 import com.nspwn.ghostbin.R;
-import com.nspwn.ghostbin.core.BootstrapService;
-import com.nspwn.ghostbin.util.SafeAsyncTask;
 import com.viewpagerindicator.TitlePageIndicator;
+
+import net.simonvt.menudrawer.MenuDrawer;
 
 import javax.inject.Inject;
 
 import butterknife.InjectView;
 import butterknife.Views;
-import net.simonvt.menudrawer.MenuDrawer;
 
 
 /**

@@ -15,16 +15,17 @@
  */
 package com.github.kevinsawicki.wishlist;
 
-import static android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE;
-import static android.view.KeyEvent.ACTION_DOWN;
-import static android.view.KeyEvent.KEYCODE_ENTER;
-import static android.view.inputmethod.EditorInfo.IME_ACTION_DONE;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+
+import static android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE;
+import static android.view.KeyEvent.ACTION_DOWN;
+import static android.view.KeyEvent.KEYCODE_ENTER;
+import static android.view.inputmethod.EditorInfo.IME_ACTION_DONE;
 
 /**
  * Utilities for working with an {@link EditText}

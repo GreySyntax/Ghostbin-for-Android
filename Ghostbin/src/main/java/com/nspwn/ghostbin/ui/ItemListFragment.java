@@ -20,12 +20,12 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.nspwn.ghostbin.R;
-import com.nspwn.ghostbin.R.id;
-import com.nspwn.ghostbin.R.layout;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
 import com.github.kevinsawicki.wishlist.Toaster;
 import com.github.kevinsawicki.wishlist.ViewUtils;
+import com.nspwn.ghostbin.R;
+import com.nspwn.ghostbin.R.id;
+import com.nspwn.ghostbin.R.layout;
 
 import java.util.Collections;
 import java.util.List;

@@ -15,11 +15,6 @@
  */
 package com.github.kevinsawicki.wishlist;
 
-import static android.content.Context.LOCATION_SERVICE;
-import static android.location.Criteria.ACCURACY_FINE;
-import static android.location.LocationManager.GPS_PROVIDER;
-import static android.location.LocationManager.NETWORK_PROVIDER;
-import static android.location.LocationManager.PASSIVE_PROVIDER;
 import android.content.Context;
 import android.location.Address;
 import android.location.Criteria;
@@ -29,6 +24,12 @@ import android.location.LocationManager;
 
 import java.io.IOException;
 import java.util.List;
+
+import static android.content.Context.LOCATION_SERVICE;
+import static android.location.Criteria.ACCURACY_FINE;
+import static android.location.LocationManager.GPS_PROVIDER;
+import static android.location.LocationManager.NETWORK_PROVIDER;
+import static android.location.LocationManager.PASSIVE_PROVIDER;
 
 /**
  * Utilities for dealing with the location service

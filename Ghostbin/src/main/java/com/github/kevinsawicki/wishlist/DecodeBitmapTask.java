@@ -15,8 +15,6 @@
  */
 package com.github.kevinsawicki.wishlist;
 
-import static android.graphics.Bitmap.Config.ARGB_8888;
-import static android.util.Log.DEBUG;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
@@ -24,6 +22,9 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import java.io.File;
+
+import static android.graphics.Bitmap.Config.ARGB_8888;
+import static android.util.Log.DEBUG;
 
 /**
  * Task to decode a bitmap from a file path

@@ -15,9 +15,10 @@
  */
 package com.github.kevinsawicki.wishlist;
 
-import static android.os.Build.VERSION.SDK_INT;
 import android.app.AlertDialog;
 import android.content.Context;
+
+import static android.os.Build.VERSION.SDK_INT;
 
 /**
  * Alert dialog in Holo Light theme

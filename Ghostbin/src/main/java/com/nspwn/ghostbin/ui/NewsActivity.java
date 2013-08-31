@@ -1,6 +1,5 @@
 package com.nspwn.ghostbin.ui;
 
-import static com.nspwn.ghostbin.core.Constants.Extra.NEWS_ITEM;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -8,6 +7,8 @@ import com.nspwn.ghostbin.R;
 import com.nspwn.ghostbin.core.News;
 
 import butterknife.InjectView;
+
+import static com.nspwn.ghostbin.core.Constants.Extra.NEWS_ITEM;
 
 public class NewsActivity extends BootstrapActivity {
 

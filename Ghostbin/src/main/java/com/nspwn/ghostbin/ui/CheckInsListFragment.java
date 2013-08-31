@@ -9,15 +9,16 @@ import android.support.v4.content.Loader;
 import android.view.View;
 import android.widget.ListView;
 
+import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
 import com.nspwn.ghostbin.BootstrapApplication;
 import com.nspwn.ghostbin.BootstrapServiceProvider;
 import com.nspwn.ghostbin.R;
 import com.nspwn.ghostbin.core.CheckIn;
-import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
-import javax.inject.Inject;
 
 import java.util.Collections;
 import java.util.List;
+
+import javax.inject.Inject;
 
 public class CheckInsListFragment extends ItemListFragment<CheckIn> {
 

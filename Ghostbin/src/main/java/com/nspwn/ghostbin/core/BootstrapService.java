@@ -1,24 +1,19 @@
 
 package com.nspwn.ghostbin.core;
 
-import static com.nspwn.ghostbin.core.Constants.Http.HEADER_PARSE_APP_ID;
-import static com.nspwn.ghostbin.core.Constants.Http.HEADER_PARSE_REST_API_KEY;
-import static com.nspwn.ghostbin.core.Constants.Http.PARSE_APP_ID;
-import static com.nspwn.ghostbin.core.Constants.Http.PARSE_REST_API_KEY;
-import static com.nspwn.ghostbin.core.Constants.Http.URL_CHECKINS;
-import static com.nspwn.ghostbin.core.Constants.Http.URL_NEWS;
-import static com.nspwn.ghostbin.core.Constants.Http.URL_USERS;
-
 import com.github.kevinsawicki.http.HttpRequest;
 import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
+import com.nspwn.ghostbin.core.beans.LanguageGroup;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Collections;
 import java.util.List;
+
+import static com.nspwn.ghostbin.core.Constants.Http.URL_LANGUAGES;
 
 /**
  * Bootstrap API service
@@ -47,15 +42,8 @@ public class BootstrapService {
      */
     private static final int TIMEOUT = 30 * 1000;
 
-    private static class NewsWrapper {
-
-        private List<News> results;
-    }
-
-    private static class CheckInWrapper {
-
-        private List<CheckIn> results;
-
+    private static class LanguageWrapper {
+        private List<LanguageGroup> results;
     }
 
     private static class JsonException extends IOException {
@@ -73,34 +61,13 @@ public class BootstrapService {
         }
     }
 
-
-    private final String apiKey;
-    private final String username;
-    private final String password;
-
-    /**
-     * Create bootstrap service
-     *
-     * @param username
-     * @param password
-     */
-    public BootstrapService(final String username, final String password) {
-        this.username = username;
-        this.password = password;
-        this.apiKey = null;
-    }
-
     /**
      * Create bootstrap service
      *
      * @param userAgentProvider
-     * @param apiKey
      */
-    public BootstrapService(final String apiKey, final UserAgentProvider userAgentProvider) {
+    public BootstrapService(final UserAgentProvider userAgentProvider) {
         this.userAgentProvider = userAgentProvider;
-        this.username = null;
-        this.password = null;
-        this.apiKey = apiKey;
     }
 
     /**
@@ -134,23 +101,6 @@ public class BootstrapService {
 
     private HttpRequest addCredentialsTo(HttpRequest request) {
 
-        // Required params for
-        request.header(HEADER_PARSE_REST_API_KEY, PARSE_REST_API_KEY );
-        request.header(HEADER_PARSE_APP_ID, PARSE_APP_ID);
-
-        /**
-         * NOTE: This may be where you want to add a header for the api token that was saved when you
-         * logged in. In the bootstrap sample this is where we are saving the session id as the token.
-         * If you actually had received a token you'd take the "apiKey" (aka: token) and add it to the
-         * header or form values before you make your requests.
-          */
-
-        /**
-         * Add the user name and password to the request here if your service needs username or password for each
-         * request. You can do this like this:
-         * request.basic("myusername", "mypassword");
-         */
-
         return request;
     }
 
@@ -169,16 +119,11 @@ public class BootstrapService {
         }
     }
 
-    /**
-     * Get all bootstrap News that exists on Parse.com
-     *
-     * @return non-null but possibly empty list of bootstrap
-     * @throws IOException
-     */
-    public List<News> getNews() throws IOException {
+    public List<LanguageGroup> getLanguages() throws IOException {
         try {
-            HttpRequest request = execute(HttpRequest.get(URL_NEWS));
-            NewsWrapper response = fromJson(request, NewsWrapper.class);
+            HttpRequest request = execute(HttpRequest.get(URL_LANGUAGES));
+            LanguageWrapper response = fromJson(request, LanguageWrapper.class);
+
             if (response != null && response.results != null)
                 return response.results;
             return Collections.emptyList();
@@ -186,23 +131,4 @@ public class BootstrapService {
             throw e.getCause();
         }
     }
-
-    /**
-     * Get all bootstrap Checkins that exists on Parse.com
-     *
-     * @return non-null but possibly empty list of bootstrap
-     * @throws IOException
-     */
-    public List<CheckIn> getCheckIns() throws IOException {
-        try {
-            HttpRequest request = execute(HttpRequest.get(URL_CHECKINS));
-            CheckInWrapper response = fromJson(request, CheckInWrapper.class);
-            if (response != null && response.results != null)
-                return response.results;
-            return Collections.emptyList();
-        } catch (HttpRequestException e) {
-            throw e.getCause();
-        }
-    }
-
 }

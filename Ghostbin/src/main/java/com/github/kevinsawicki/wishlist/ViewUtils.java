@@ -15,14 +15,14 @@
  */
 package com.github.kevinsawicki.wishlist;
 
-import static android.view.View.GONE;
-import static android.view.View.INVISIBLE;
-import static android.view.View.VISIBLE;
-
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.view.TouchDelegate;
 import android.view.View;
+
+import static android.view.View.GONE;
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 
 /**
  * Utilities for working with the {@link View} class

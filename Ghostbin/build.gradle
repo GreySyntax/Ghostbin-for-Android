@@ -23,6 +23,18 @@ android {
         targetSdkVersion 17
     }
 
+    signingConfigs {
+        release {
+            keyAlias 'nspwn_release'
+            storeFile file('../../../.keystore')
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
     sourceSets {
         main {
             assets.srcDirs = ['assets']

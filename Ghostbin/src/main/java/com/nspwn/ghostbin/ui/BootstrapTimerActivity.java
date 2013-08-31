@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.nspwn.ghostbin.BootstrapApplication;
 import com.nspwn.ghostbin.R;
 import com.nspwn.ghostbin.core.PauseTimerEvent;
 import com.nspwn.ghostbin.core.ResumeTimerEvent;
@@ -16,12 +15,12 @@ import com.nspwn.ghostbin.core.StopTimerEvent;
 import com.nspwn.ghostbin.core.TimerPausedEvent;
 import com.nspwn.ghostbin.core.TimerService;
 import com.nspwn.ghostbin.core.TimerTickEvent;
-import javax.inject.Inject;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
+import javax.inject.Inject;
+
 import butterknife.InjectView;
-import butterknife.Views;
 
 public class BootstrapTimerActivity extends BootstrapFragmentActivity implements View.OnClickListener {
 

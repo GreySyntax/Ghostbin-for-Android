@@ -43,5 +43,5 @@
 
     <!-- Menu stuff -->
     <string name="md__drawerOpenIndicatorDesc">Close drawer</string>
-    <string name="md__drawerClosedIndicatorDesc">Open drawer</string><string name="session">Session</string>
+    <string name="md__drawerClosedIndicatorDesc">Open drawer</string><string name="session">Session</string><string name="encrypt_paste">Encrypt Paste</string>
 </resources>

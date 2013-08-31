@@ -1,7 +1,5 @@
 package net.simonvt.menudrawer;
 
-import net.simonvt.menudrawer.compat.ActionBarHelper;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -26,6 +24,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Interpolator;
 
 import com.nspwn.ghostbin.R;
+
+import net.simonvt.menudrawer.compat.ActionBarHelper;
 
 public abstract class MenuDrawer extends ViewGroup {
 

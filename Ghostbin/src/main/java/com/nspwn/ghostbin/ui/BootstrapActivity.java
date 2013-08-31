@@ -1,7 +1,5 @@
 package com.nspwn.ghostbin.ui;
 
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,6 +8,9 @@ import com.actionbarsherlock.view.MenuItem;
 import com.nspwn.ghostbin.BootstrapApplication;
 
 import butterknife.Views;
+
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
 
 /**
  * Base activity for a Bootstrap activity which does not use fragments.

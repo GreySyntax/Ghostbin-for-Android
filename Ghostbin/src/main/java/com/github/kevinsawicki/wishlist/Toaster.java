@@ -15,14 +15,15 @@
  */
 package com.github.kevinsawicki.wishlist;
 
-import static android.widget.Toast.LENGTH_LONG;
-import static android.widget.Toast.LENGTH_SHORT;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.widget.Toast;
 
 import java.text.MessageFormat;
+
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.LENGTH_SHORT;
 
 /**
  * Helper to show {@link Toast} notifications

@@ -5,15 +5,15 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 
-import com.nspwn.ghostbin.BootstrapApplication;
 import com.nspwn.ghostbin.util.Ln;
 import com.nspwn.ghostbin.util.Strings;
 
-import javax.inject.Inject;
-import javax.inject.Provider;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Locale;
+
+import javax.inject.Inject;
+import javax.inject.Provider;
 
 
 public class UserAgentProvider implements Provider<String> {

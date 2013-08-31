@@ -3,8 +3,8 @@ package com.nspwn.ghostbin.ui;
 
 import android.view.LayoutInflater;
 
-import com.nspwn.ghostbin.R.color;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
+import com.nspwn.ghostbin.R.color;
 import com.nspwn.ghostbin.R.drawable;
 
 import java.util.List;

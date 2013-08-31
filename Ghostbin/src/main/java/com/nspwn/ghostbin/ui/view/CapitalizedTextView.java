@@ -6,8 +6,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.Button;
 
-import com.nspwn.ghostbin.util.Strings;
-
 import java.util.Locale;
 
 /**

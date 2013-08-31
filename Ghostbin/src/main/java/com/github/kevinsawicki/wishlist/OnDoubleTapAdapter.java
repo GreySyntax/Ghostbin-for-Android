@@ -15,8 +15,8 @@
  */
 package com.github.kevinsawicki.wishlist;
 
-import android.view.MotionEvent;
 import android.view.GestureDetector.OnDoubleTapListener;
+import android.view.MotionEvent;
 
 /**
  * Adapter for a {@link OnDoubleTapListener}

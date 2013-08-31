@@ -15,9 +15,10 @@
  */
 package com.github.kevinsawicki.wishlist;
 
-import static android.content.Context.INPUT_METHOD_SERVICE;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+
+import static android.content.Context.INPUT_METHOD_SERVICE;
 
 /**
  * Keyboard utilities

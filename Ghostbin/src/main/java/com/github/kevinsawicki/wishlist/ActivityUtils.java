@@ -15,10 +15,11 @@
  */
 package com.github.kevinsawicki.wishlist;
 
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
 import android.app.Activity;
 import android.content.Intent;
+
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
 
 /**
  * Utilities for an {@link Activity}

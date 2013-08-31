@@ -2,7 +2,6 @@
 package com.nspwn.ghostbin.ui;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.nspwn.ghostbin.util.Ln;
 

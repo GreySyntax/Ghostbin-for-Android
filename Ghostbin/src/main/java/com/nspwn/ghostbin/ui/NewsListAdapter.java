@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 
 import com.nspwn.ghostbin.R;
 import com.nspwn.ghostbin.core.News;
-import com.nspwn.ghostbin.ui.AlternatingColorListAdapter;
 
 import java.util.List;
 

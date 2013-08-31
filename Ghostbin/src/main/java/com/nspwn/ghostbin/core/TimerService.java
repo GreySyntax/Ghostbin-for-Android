@@ -14,12 +14,12 @@ import android.support.v4.app.NotificationCompat;
 import com.nspwn.ghostbin.BootstrapApplication;
 import com.nspwn.ghostbin.R;
 import com.nspwn.ghostbin.ui.BootstrapTimerActivity;
-import javax.inject.Inject;
-
 import com.nspwn.ghostbin.util.Ln;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Produce;
 import com.squareup.otto.Subscribe;
+
+import javax.inject.Inject;
 
 import static com.nspwn.ghostbin.core.Constants.Notification.TIMER_NOTIFICATION_ID;
 
