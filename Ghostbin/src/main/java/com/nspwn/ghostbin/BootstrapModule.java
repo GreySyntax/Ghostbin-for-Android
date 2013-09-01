@@ -1,12 +1,8 @@
 package com.nspwn.ghostbin;
 
 import com.nspwn.ghostbin.ui.CarouselActivity;
-import com.squareup.otto.Bus;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
-import dagger.Provides;
 
 /**
  * Dagger module for setting up provides statements.

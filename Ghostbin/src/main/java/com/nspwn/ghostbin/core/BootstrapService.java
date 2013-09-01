@@ -10,10 +10,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.nspwn.ghostbin.core.beans.LanguageGroup;
 
-import org.apache.http.impl.cookie.DateParseException;
-import org.apache.http.impl.cookie.DateUtils;
-import org.json.JSONException;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,14 +17,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import static com.nspwn.ghostbin.core.Constants.Http.URL_LANGUAGES;
 import static com.nspwn.ghostbin.core.Constants.Cache.LANGUAGE_CACHE;
+import static com.nspwn.ghostbin.core.Constants.Http.URL_LANGUAGES;
 
 /**
  * Bootstrap API service
