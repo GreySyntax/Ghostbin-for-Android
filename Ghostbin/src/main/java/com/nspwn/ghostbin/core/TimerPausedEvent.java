@@ -1,14 +1,14 @@
-package com.nspwn.ghostbin.core;
-
-public class TimerPausedEvent {
-
-    private boolean timerIsPaused;
-
-    public TimerPausedEvent(boolean timerIsPaused) {
-        this.timerIsPaused = timerIsPaused;
-    }
-
-    public boolean isTimerIsPaused() {
-        return timerIsPaused;
-    }
-}
+//package com.nspwn.ghostbin.core;
+//
+//public class TimerPausedEvent {
+//
+//    private boolean timerIsPaused;
+//
+//    public TimerPausedEvent(boolean timerIsPaused) {
+//        this.timerIsPaused = timerIsPaused;
+//    }
+//
+//    public boolean isTimerIsPaused() {
+//        return timerIsPaused;
+//    }
+//}

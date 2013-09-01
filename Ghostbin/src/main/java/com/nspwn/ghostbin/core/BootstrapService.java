@@ -10,6 +10,8 @@ import com.nspwn.ghostbin.core.beans.LanguageGroup;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -122,10 +124,11 @@ public class BootstrapService {
     public List<LanguageGroup> getLanguages() throws IOException {
         try {
             HttpRequest request = execute(HttpRequest.get(URL_LANGUAGES));
-            LanguageWrapper response = fromJson(request, LanguageWrapper.class);
+            LanguageGroup[] response = fromJson(request, LanguageGroup[].class);
 
-            if (response != null && response.results != null)
-                return response.results;
+            if (response != null) {
+                return Arrays.asList(response);
+            }
             return Collections.emptyList();
         } catch (HttpRequestException e) {
             throw e.getCause();

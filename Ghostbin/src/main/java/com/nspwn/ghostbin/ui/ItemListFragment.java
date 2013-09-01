@@ -91,7 +91,7 @@ public abstract class ItemListFragment<E> extends SherlockFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        return inflater.inflate(layout.item_list, null);
+        return inflater.inflate(layout.paste_list, null);
     }
 
     /**

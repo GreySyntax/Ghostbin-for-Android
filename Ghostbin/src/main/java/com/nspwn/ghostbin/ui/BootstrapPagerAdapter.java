@@ -1,5 +1,3 @@
-
-
 package com.nspwn.ghostbin.ui;
 
 import android.content.res.Resources;
@@ -7,8 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
-import com.nspwn.ghostbin.R;
 
 /**
  * Pager adapter
@@ -37,14 +33,14 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Bundle bundle = new Bundle();
         switch (position) {
-        case 0:
-            NewsListFragment newsFragment = new NewsListFragment();
-            newsFragment.setArguments(bundle);
-            return newsFragment;
-        case 2:
-            CheckInsListFragment checkInsFragment = new CheckInsListFragment();
-            checkInsFragment.setArguments(bundle);
-            return checkInsFragment;
+//        case 0:
+//            NewsListFragment newsFragment = new NewsListFragment();
+//            newsFragment.setArguments(bundle);
+//            return newsFragment;
+//        case 2:
+//            CheckInsListFragment checkInsFragment = new CheckInsListFragment();
+//            checkInsFragment.setArguments(bundle);
+//            return checkInsFragment;
         default:
             return null;
         }
@@ -53,12 +49,12 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
-        case 0:
-            return resources.getString(R.string.page_news);
-        case 1:
-            return resources.getString(R.string.page_users);
-        case 2:
-            return resources.getString(R.string.page_checkins);
+//        case 0:
+//            return resources.getString(R.string.page_news);
+//        case 1:
+//            return resources.getString(R.string.page_users);
+//        case 2:
+//            return resources.getString(R.string.page_checkins);
         default:
             return null;
         }

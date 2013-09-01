@@ -1,7 +1,7 @@
-package com.nspwn.ghostbin.core;
-
-/**
- * Marker class for resuming a timer through Otto
- */
-public class ResumeTimerEvent {
-}
+//package com.nspwn.ghostbin.core;
+//
+///**
+// * Marker class for resuming a timer through Otto
+// */
+//public class ResumeTimerEvent {
+//}

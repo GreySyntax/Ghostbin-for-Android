@@ -1,5 +1,3 @@
-
-
 package com.nspwn.ghostbin;
 
 import android.app.Application;

@@ -1,7 +1,7 @@
-package com.nspwn.ghostbin.core;
-
-/**
- * Marker class for Otto for a pause event for the timer.
- */
-public class PauseTimerEvent {
-}
+//package com.nspwn.ghostbin.core;
+//
+///**
+// * Marker class for Otto for a pause event for the timer.
+// */
+//public class PauseTimerEvent {
+//}
