@@ -16,6 +16,7 @@ import android.widget.ScrollView;
 
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
+import com.nspwn.ghostbin.BootstrapApplication;
 import com.nspwn.ghostbin.BootstrapServiceProvider;
 import com.nspwn.ghostbin.R;
 import com.nspwn.ghostbin.core.BootstrapService;
@@ -101,6 +102,7 @@ public class CarouselActivity extends BootstrapFragmentActivity {
 
     private void initMenu() {
         try {
+            BootstrapApplication.getInstance().getCacheDir();
             final BootstrapService provider = serviceProvider.getService(this);
 
             languageTask = new SafeAsyncTask<List<LanguageGroup>>() {
