@@ -18,4 +18,9 @@ public class Language {
     public String getTitle() {
         return title;
     }
+
+    @Override
+    public String toString() {
+        return String.format("name: %s; title: %s;", this.getName(), this.getTitle());
+    }
 }

@@ -6,6 +6,7 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -37,14 +38,15 @@ import butterknife.Views;
 /**
  * Activity to view the carousel and view pager indicator with fragments.
  */
-public class CarouselActivity extends BootstrapFragmentActivity {
-
+public class PasteActivity extends BootstrapFragmentActivity {
+    private static final String TAG = "com.nspwn.ghostbin.ui.PasteActivity";
     @InjectView(R.id.tpi_header) TitlePageIndicator indicator;
     @InjectView(R.id.vp_pages) ViewPager pager;
 
     @Inject BootstrapServiceProvider serviceProvider;
     private SafeAsyncTask<List<LanguageGroup>> languageTask;
     private MenuDrawer menuDrawer;
+    private Language language;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,11 @@ public class CarouselActivity extends BootstrapFragmentActivity {
 //        menuDrawer.setMenuView(R.layout.navigation_drawer);
         initMenu();
 //        initScreen();
+    }
+
+    private void setLanguage(Language language) {
+        Log.d(TAG, String.format("Setting language %s", language));
+        this.language = language;
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -77,12 +84,24 @@ public class CarouselActivity extends BootstrapFragmentActivity {
             splitterG.setVisibility(View.VISIBLE);
             linearLayout.addView(splitterG);
 
-            for (Language language : languageGroup.getLanguages()) {
+            for (final Language language : languageGroup.getLanguages()) {
                 Button button = new Button(this);
                 button.setText(language.getTitle());
                 button.setTextColor(getResources().getColor(R.color.nav_text_selector));
                 button.setBackground(getResources().getDrawable(R.drawable.nav_menu_button_background_selector));
                 button.setVisibility(View.VISIBLE);
+
+                // Handle click event
+                button.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        // Hide menu drawer
+                        menuDrawer.toggleMenu();
+                        setLanguage(language);
+                    }
+                });
+
                 linearLayout.addView(button);
                 View splitter = getLayoutInflater().inflate(R.layout.menu_splitter, linearLayout, false);
                 splitter.setVisibility(View.VISIBLE);
@@ -105,7 +124,7 @@ public class CarouselActivity extends BootstrapFragmentActivity {
             languageTask = new SafeAsyncTask<List<LanguageGroup>>() {
                 @Override
                 public List<LanguageGroup> call() throws Exception {
-                    return provider.getLanguages();
+                    return provider.getLanguages(getCacheDir());
                 }
 
                 @Override
@@ -120,6 +139,7 @@ public class CarouselActivity extends BootstrapFragmentActivity {
             e.printStackTrace();
         }
     }
+
     private void initScreen() {
         pager.setAdapter(new BootstrapPagerAdapter(getResources(), getSupportFragmentManager()));
 

@@ -1,6 +1,6 @@
 package com.nspwn.ghostbin;
 
-import com.nspwn.ghostbin.ui.CarouselActivity;
+import com.nspwn.ghostbin.ui.PasteActivity;
 
 import dagger.Module;
 
@@ -14,7 +14,7 @@ import dagger.Module;
 
         injects = {
                 BootstrapApplication.class,
-                CarouselActivity.class
+                PasteActivity.class
         }
 
 )
