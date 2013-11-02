@@ -15,4 +15,3 @@ TODO
 * Implement passwords for pastes
 * Implement expiry times
 * Implement 'history'
-* Change once a language is select show it on the 'view page indicator'

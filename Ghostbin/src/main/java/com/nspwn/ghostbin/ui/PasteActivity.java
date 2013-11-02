@@ -1,5 +1,3 @@
-
-
 package com.nspwn.ghostbin.ui;
 
 import android.annotation.TargetApi;
@@ -8,13 +6,14 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
-import com.nspwn.ghostbin.BootstrapApplication;
 import com.nspwn.ghostbin.BootstrapServiceProvider;
 import com.nspwn.ghostbin.R;
 import com.nspwn.ghostbin.core.BootstrapService;
@@ -31,7 +30,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.InjectView;
 import butterknife.Views;
 
 
@@ -40,26 +38,19 @@ import butterknife.Views;
  */
 public class PasteActivity extends BootstrapFragmentActivity {
     private static final String TAG = "com.nspwn.ghostbin.ui.PasteActivity";
-    @InjectView(R.id.tpi_header) TitlePageIndicator indicator;
-    @InjectView(R.id.vp_pages) ViewPager pager;
-
+    TitlePageIndicator indicator;
+    ViewPager pager;
     @Inject BootstrapServiceProvider serviceProvider;
-    private SafeAsyncTask<List<LanguageGroup>> languageTask;
     private MenuDrawer menuDrawer;
     private Language language;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-
         super.onCreate(savedInstanceState);
-
-        // Set up navigation drawer
-        menuDrawer = MenuDrawer.attach(this);
-//        menuDrawer.setMenuView(R.layout.navigation_drawer);
+//        setContentView(R.layout.paste_view);
+        Views.inject(this);
         initMenu();
-//        initScreen();
+        initScreen();
     }
 
     private void setLanguage(Language language) {
@@ -70,6 +61,7 @@ public class PasteActivity extends BootstrapFragmentActivity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void drawMenu(List<LanguageGroup> languageGroups) {
         ScrollView scrollView = (ScrollView)getLayoutInflater().inflate(R.layout.navigation_drawer, menuDrawer.getMenuContainer(), false);
+        assert scrollView != null;
         LinearLayout linearLayout = (LinearLayout)scrollView.getChildAt(0);
 
         for (LanguageGroup languageGroup : languageGroups) {
@@ -77,10 +69,12 @@ public class PasteActivity extends BootstrapFragmentActivity {
             capitalizedTextView.setText(languageGroup.getTitle());
             capitalizedTextView.setTextColor(getResources().getColor(R.color.nav_text_selector));
             capitalizedTextView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-            capitalizedTextView.setBackground(getResources().getDrawable(R.drawable.nav_menu_button_background_selector));
+            capitalizedTextView.setBackground(getResources().getDrawable(R.drawable.nav_menu_button_background_disabled));
             capitalizedTextView.setVisibility(View.VISIBLE);
+            assert linearLayout != null;
             linearLayout.addView(capitalizedTextView);
             View splitterG = getLayoutInflater().inflate(R.layout.menu_splitter, linearLayout, false);
+            assert splitterG != null;
             splitterG.setVisibility(View.VISIBLE);
             linearLayout.addView(splitterG);
 
@@ -104,24 +98,24 @@ public class PasteActivity extends BootstrapFragmentActivity {
 
                 linearLayout.addView(button);
                 View splitter = getLayoutInflater().inflate(R.layout.menu_splitter, linearLayout, false);
+                assert splitter != null;
                 splitter.setVisibility(View.VISIBLE);
                 linearLayout.addView(splitter);
             }
         }
 
         menuDrawer.setMenuView(scrollView);
-        menuDrawer.setContentView(R.layout.carousel_view);
+        menuDrawer.setContentView(R.layout.paste_view);
         menuDrawer.setSlideDrawable(R.drawable.ic_drawer);
         menuDrawer.setDrawerIndicatorEnabled(true);
-        Views.inject(this);
     }
 
     private void initMenu() {
         try {
-            BootstrapApplication.getInstance().getCacheDir();
+            menuDrawer = MenuDrawer.attach(this);
             final BootstrapService provider = serviceProvider.getService(this);
 
-            languageTask = new SafeAsyncTask<List<LanguageGroup>>() {
+            SafeAsyncTask<List<LanguageGroup>> languageTask = new SafeAsyncTask<List<LanguageGroup>>() {
                 @Override
                 public List<LanguageGroup> call() throws Exception {
                     return provider.getLanguages(getCacheDir());
@@ -141,6 +135,11 @@ public class PasteActivity extends BootstrapFragmentActivity {
     }
 
     private void initScreen() {
+        ViewGroup container = new FrameLayout(this);
+        View paste_view = getLayoutInflater().inflate(R.layout.paste_view, container);
+        pager = (ViewPager) paste_view.findViewById(R.id.vp_pages);
+        indicator = (TitlePageIndicator) paste_view.findViewById(R.id.tpi_header);
+
         pager.setAdapter(new BootstrapPagerAdapter(getResources(), getSupportFragmentManager()));
 
         indicator.setViewPager(pager);
@@ -170,5 +169,9 @@ public class PasteActivity extends BootstrapFragmentActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public Language getLanguage() {
+        return language;
     }
 }

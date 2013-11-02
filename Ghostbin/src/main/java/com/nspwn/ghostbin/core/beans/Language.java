@@ -14,7 +14,7 @@ public class Language {
     private String name;
     @SerializedName("Title")
     private String title;
-    @SerializedName("Name")
+    @SerializedName("Names")
     private List<String> names;
 
     public String getName() {

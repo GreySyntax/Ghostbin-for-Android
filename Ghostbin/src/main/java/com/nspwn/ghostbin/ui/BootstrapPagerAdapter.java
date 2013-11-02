@@ -48,6 +48,7 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
+        int a = 1;
         switch (position) {
 //        case 0:
 //            return resources.getString(R.string.page_news);
